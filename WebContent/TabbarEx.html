@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="dhtmlx/codebase/dhtmlxgrid.css" />
+<link rel="stylesheet" type="text/css" href="dhtmlx/codebase/dhtmlx.css" />
+<link rel="stylesheet" type="text/css" href="dhtmlx/codebase/dhtmlxtabbar.css" />
+
+
+<script src="dhtmlx/codebase/dhtmlx.js"></script>
+<script src="dhtmlx/codebase/dhtmlxgrid.js"></script>
+<script src="dhtmlx/sources/dhtmlxTabbar/codebase/dhtmlxtabbar.js"></script>
+<script src="dhtmlx/codebase/dhtmlxcontainer.js"></script>
+
+<meta charset="ISO-8859-1">
+<title>Hello </title>
+</head>
+<body>
+
+    <div id="r1" style="width:700px; height:400px;"></div>
+    <div id="r2" style="display: none;"><img border="0" src="dhtmlx/skins/skyblue/imgs/dhxacc_skyblue/dhxacc_cell_progress.gif"></div>
+
+</body>
+
+<script>
+		var myTabbar;
+			
+			myTabbar = new dhtmlXTabBar("r1");
+			
+			myTabbar.addTab("a1", "Tab _1", null, null, true);
+			myTabbar.addTab("a2", "Tab _2");
+			myTabbar.addTab("a3", "Tab _3");
+			myTabbar.addTab("a4", "Tab _4");
+			
+			myTabbar.tabs("a1").attachURL("ExDhtmlxTabbar.jsp", true);
+			
+			myTabbar.tabs("a2").attachURL("ExTabbar2.jsp", true);
+			
+			myTabbar.tabs("a3").attachHTMLString("<b>  WELCOME  <br>     TO      <br>     DHTMLx    <br>     TABBAR's        METHOD  </b>");
+			
+			myTabbar.tabs("a4").attachObject("r2");
+			
+			
+	        //myTabbar.tabs("a2").attachURL("", true);
+			
+			//myTabbar.tabs("a2").attachObject("r2");
+			
+			//myTabbar.tabs("a2").attachURL("ExDhtmlx.html", true);
+			
+	</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- myTabbar.tabs("a1").attachHTMLString("<b>HTML</b> The DHTMLX library supplies over 20 fully customizable widgets to help you build interfaces of different kinds, nicely present data and work with it. There are also multiple controls and specific features to make your applications good-looking and user-friendly <b>HTML</b>.");
+			myTabbar.tabs("a2").attachObject("r2");
+			myTabbar.tabs("a3").attachHTMLString("<b>Vivek Kushwah</b> <b>HTML</b> AIT is a global IT Services provider that partners with business leaders to develop sophisticated technology-driven solutions that bring an organization’s strategic vision to fruition. We specialize in outsourced, vertically-aligned product development with a hybrid blend of onsite, off-site, and offshore services. What makes us unique is our focus on fully comprehending a client’s business objectives in order to deliver customized solutions and services that help sustain a competitive edge and long-term business success. Likewise, we are heavily invested in supporting the careers of our consultants and employees, ensuring that our services are consistently delivered by best in class talent <b>HTML</b> Pune.");
+			 -->

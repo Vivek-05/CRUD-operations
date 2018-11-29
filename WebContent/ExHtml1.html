@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="dhtmlx/codebase/dhtmlxgrid.css" />
+<link rel="stylesheet" type="text/css" href="dhtmlx/codebase/dhtmlx.css" />
+
+<script src="dhtmlx/codebase/dhtmlx.js"></script>
+<script src="dhtmlx/codebase/dhtmlxgrid.js"></script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Hello</title>
+</head>
+<body>
+
+	<table id="table">
+
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Mobile</th>
+			<th>Date of Birth</th>
+			<th>Gender</th>
+		</tr>
+		<tr>
+			<td>Vivek</td>
+			<td>vivek@gmail.com</td>
+			<td>6548181254</td>
+			<td>3544</td>
+			<td>Male</td>
+		</tr>
+		<tr>
+			<td>Vivek</td>
+			<td>vivek@gmail.com</td>
+			<td>6548181254</td>
+			<td>3544</td>
+			<td>Male</td>
+		</tr>
+		<tr>
+			<td>Vivek</td>
+			<td>vivek@gmail.com</td>
+			<td>6548181254</td>
+			<td>3544</td>
+			<td>Male</td>
+		</tr>
+		<tr>
+			<td>Vivek</td>
+			<td>vivek@gmail.com</td>
+			<td>6548181254</td>
+			<td>3544</td>
+			<td>Male</td>
+		</tr>
+	</table>
+
+	<script>
+	
+		var mygrid = dhtmlXGridFromTable("table");
+		mygrid.enableAutoWidth(true);
+		mygrid.enableAutoHeight(true);
+		mygrid.setSizes();
+		
+		
+	</script>
+
+</body>
+</html>

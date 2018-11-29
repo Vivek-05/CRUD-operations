@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Hello</title>
+
+<link rel="stylesheet" type="text/css" href="dhtmlx/codebase/dhtmlx.css" />
+<link rel="stylesheet" type="text/css"
+	href="dhtmlx/codebase/dhtmlxgrid.css" />
+<link rel="stylesheet" type="text/css"
+	href="dhtmlx/codebase/dhtmlxmenu.css" />
+<link rel="stylesheet" type="text/css"
+	href="dhtmlx/sources/dhtmlxGrid/codebase/skins/dhtmlxgrid_dhx_skyblue.css">
+
+<script src="dhtmlx/codebase/dhtmlx.js"></script>
+<script src="dhtmlx/codebase/dhtmlxmenu.js"></script>
+<script src="dhtmlx/codebase/dhtmlxgrid.js"></script>
+
+<script>
+	var myGrid, myGrid2, myMenu;
+	function Load() {
+
+		myMenu = new dhtmlXMenuObject();
+		myMenu.setIconsPath("dhtmlx/sources/dhtmlxMenu/codebase/imgs");
+		myMenu.renderAsContextMenu();
+		myMenu.attachEvent("onClick", move_row);
+		myMenu.loadStruct("dhtmlx/codebase/dhxmenu_radios.xml");
+
+		myGrid = new dhtmlXGridObject('res');
+		myGrid.setImagePath("dhtmlx/codebase/imgs/");
+		myGrid.setHeader("Name, Email");
+		myGrid.setInitWidths("150,200");
+		myGrid.setColAlign("left,left");
+		myGrid.setColTypes("ro,ro");
+		myGrid.enableContextMenu(myMenu);
+		myGrid.init();
+		myGrid.load("ContextMenuServlet");
+
+		myGrid2 = new dhtmlXGridObject('res1');
+		myGrid2.setImagePath("dhtmlx/codebase/imgss/");
+		myGrid2.setHeader("NAME, EMAIL");
+		myGrid2.setInitWidths("100,250");
+		myGrid2.setColAlign("left,left");
+		myGrid2.setColTypes("ro,ro");
+		myGrid2.init();
+		myGrid2.load("dhtmlx/codebase/menu.xml");
+	}
+
+	function move_row(id) {
+
+		var data = myGrid.contextID.split("_"); //data = (2) ["3", "0"]  &&  data = data[0]
+
+		myGrid.moveRowTo(data[0], "0", "move", "child", myGrid, myGrid2);
+
+		//var data = myGrid.contextID.split("_");   //data=["1_0"]
+
+		//myGrid.moveRowTo("rowID","move");
+
+		/* var moveRow=myGrid.moveRowTo("rowid","row","move","child", myGrid , myGrid2);
+		
+		/* myGrid.moveRow("row1","row_sibling","row2",myGrid2); */
+
+		/* myGrid.moveRowTo("row1","row2","move_row");			
+		
+		/* myGrid.setColumnIds("username,emailid"); 
+		var data = myGrid.getRowData("row1"); 
+		
+		var data1 = {"username":"value","emailid":"value2"};
+		myGrid.setRowData("row1",data1); */
+	}
+</script>
+
+</head>
+<body onload="Load()">
+
+	<table>
+		<tr>
+			<td>
+				<div id="res"
+					style="width: 300px; height: 250px; margin-top: 20px; margin-bottom: 10px;"></div>
+			</td>
+			<td>
+				<div id="res1"
+					style="width: 300px; height: 250px; margin-top: 20px; margin-bottom: 10px;"></div>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

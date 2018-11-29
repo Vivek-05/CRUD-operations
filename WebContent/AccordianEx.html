@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Hello</title>
+
+
+<link rel="stylesheet" type="text/css" href="dhtmlx/codebase/dhtmlx.css" />
+<link rel="stylesheet" type="text/css" href="dhtmlx/codebase/dhtmlxgrid.css" />
+<link rel="stylesheet" type="text/css" href="dhtmlx/codebase/dhtmlxmenu.css" />
+<link rel="stylesheet" type="text/css" href="dhtmlx/dhtmlxaccordion.css" />
+
+<script src="dhtmlx/codebase/dhtmlx.js"></script>
+<script src="dhtmlx/codebase/dhtmlxgrid.js"></script>
+<script src="dhtmlx/codebase/dhtmlxmenu.js"></script>
+<script src="dhtmlx/sources/dhtmlxAccordion/codebase/dhtmlxaccordion.js"></script>
+<script src="dhtmlx/codebase/dhtmlxcontainer.js"></script>
+
+<!-- <script src="dhtmlx/sources/dhtmlxForm/codebase/ext/dhtmlxform_item_container.js"></script>
+<script src="dhtmlx/sources/dhtmlxCommon/codebase/dhtmlxcommon.js"></script>
+<script src="dhtmlx/sources/dhtmlxCombo/codebase/dhtmlxcombo.js"></script> -->
+
+</head>
+
+<style>
+		div#result {
+			position: relative;
+			width: 360px;
+			height: 400px;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.09);
+		}
+	</style>
+	<script>
+		var myAcc , myGrid, myGrid2, myMenu ;
+		
+		function Load(){
+			
+			myAcc = new dhtmlXAccordion({
+					parent: "result" ,
+					items: [
+						{id: "a", text: "dhtmlxGrid"},
+						{id: "b", text: "Second TAB"},
+						{id: "c", text: "Third TAB"}
+					]
+				});
+			
+			myMenu = new dhtmlXMenuObject();
+			myMenu.setIconsPath("dhtmlx/sources/dhtmlxMenu/codebase/imgs");
+			myMenu.renderAsContextMenu();
+			myMenu.attachEvent("onClick", move_row);
+			myMenu.loadStruct("dhtmlx/codebase/dhxmenu_radios.xml");
+			
+			myGrid = myAcc.cells("a").attachGrid();
+			myGrid.setImagePath("dhtmlx/codebase/imgs/");
+			myGrid.setHeader("Name, Email");
+			myGrid.setInitWidths("150,200");
+			myGrid.setColAlign("left,left");
+			myGrid.setColTypes("ro,ro");
+			myGrid.enableContextMenu(myMenu);
+			myGrid.init();
+			myGrid.load("ContextMenuServlet");
+			
+			myGrid2 = myAcc.cells("b").attachGrid();
+			myGrid2.setImagePath("dhtmlx/codebase/imgss/");
+			myGrid2.setHeader("NAME, EMAIL");
+			myGrid2.setInitWidths("100,250");
+			myGrid2.setColAlign("left,left");
+			myGrid2.setColTypes("ro,ro");
+			myGrid2.init();
+			
+			myAcc.cells("c").attachURL("dhtmlx/codebase/imgs/dhxcp_material/dhxcp_colors.png");
+			
+			//myAcc.cells("c").attachURL("ExHtml1.html");
+			
+		}
+		function move_row(id) {
+
+			var data = myGrid.contextID.split("_"); //data = (2) ["3", "0"]  &&  data = data[0]
+
+			myGrid.moveRowTo(data[0], "0", "move", "child", myGrid, myGrid2);
+			
+		}
+	</script>
+	
+<body onload="Load();">
+
+<div id="result" style="width:500px;height:400px;margin-top:20px;margin-bottom:10px;"> </div>
+
+</body>
+
+</html>
